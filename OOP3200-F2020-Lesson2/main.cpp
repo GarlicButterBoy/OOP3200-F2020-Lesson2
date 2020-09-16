@@ -76,37 +76,43 @@ int main()
 {
 	// Declarations
 	// a point called 'origin', initialized to 0, 0
+	CartesianPoint origin = CartesianPoint(0, 0);
 	// a point called 'destination'
+	CartesianPoint destination;
+
 	int inputX; // temporary input variable for x
 	int inputY; // temporary input variable for y
-	// to store the distance between two points
 
+	// to store the distance between two points
+	double distance;
 
 	try
 	{
 		// Input
-
 		// Prompt the user for the coordinates
 		cout << "\nEnter coordinates of the destination point: " << endl;
 		// prompt for, read, and store x coordinate:
 		cout << "X: ";
-
-
+		inputX = ConsoleInput::ReadInteger();
+		destination.SetX(inputX);
 
 		// prompt for, read, and store y coordinate:
 		cout << "Y: ";
-
+		inputY = ConsoleInput::ReadInteger();
+		destination.SetY(inputY);
 
 
 		// Processing
 		// determine the distance between the two points
+		distance = origin.GetDistanceTo(destination);
 
 
 		// Output
 		// Show the points and the distance
 		cout << fixed << setprecision(3); // formatting
-
-
+		cout << endl << "The Distance between " << origin.ToString()
+			<< " and " << destination.ToString() << " is "
+			<< distance << ". " << endl;
 	}
 
 	catch (exception& ex)
